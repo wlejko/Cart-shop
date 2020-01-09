@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Menu from "./components/Menu/Menu";
+import Main from "./components/MainDisplay/Main";
+import { CartProvider } from "./contexts/CartProvider";
+import { context } from "./contexts/AppProvider";
+
+import "./App.css";
 
 const App: React.FC = () => {
+  const [view, setView] = useState("itemView");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <context.Provider value={{ view, setView }}>
+      <CartProvider>
+        <div className="App">
+          <Menu />
+          <Main />
+        </div>
+      </CartProvider>
+    </context.Provider>
   );
-}
+};
 
 export default App;
