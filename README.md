@@ -1,6 +1,6 @@
 ## Shop
 
-This is applicition where you can add item to cart. You can change view style in item list. After clicking cart you can see picked items and on the top of the page is current price of items.
+This is application where you can add item to cart. You can change view style in item list. After clicking cart you can see picked items and on the top of the page is current price of items.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
