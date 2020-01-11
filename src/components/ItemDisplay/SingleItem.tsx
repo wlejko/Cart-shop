@@ -2,12 +2,14 @@ import React, { useContext } from "react";
 import { itemInterface } from "../../shared/interface";
 import { descriptionList } from "../../shared/arrays";
 import { CartContext } from "../../contexts/CartProvider";
+import { useTranslation } from "react-i18next";
 import "../../App.css";
 
 export default function SingleItem(props: itemInterface) {
   const { name, price, description, shipping } = props;
   const arrayOfProps = [name, price, description, shipping];
   const { cartList, setCartList } = useContext(CartContext);
+  const { t } = useTranslation();
 
   const renderDescription = () => {
     return descriptionList.map(item => (
@@ -18,7 +20,11 @@ export default function SingleItem(props: itemInterface) {
   };
 
   const renderProps = () => {
-    return arrayOfProps.map(item => <p className="oneColumn">{item}</p>);
+    return arrayOfProps.map(item => (
+      <p className="oneColumn" key={item}>
+        {item}
+      </p>
+    ));
   };
 
   return (
@@ -43,7 +49,7 @@ export default function SingleItem(props: itemInterface) {
             ]);
           }}
         >
-          Add to cart
+          {t("Item.1")}
         </button>
       </div>
     </div>

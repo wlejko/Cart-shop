@@ -1,0 +1,13 @@
+{
+  "Menu": {
+    "1": "Lista",
+    "2": "Wózek"
+  },
+  "List": {
+    "1": "Lista",
+    "2": "Kafelki"
+  },
+  "Item": {
+    "1": "Dodaj"
+  }
+}

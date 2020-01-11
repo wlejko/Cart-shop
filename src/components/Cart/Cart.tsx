@@ -1,16 +1,16 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import SingleItem from "../ItemDisplay/SingleItem";
 import { CartContext } from "../../contexts/CartProvider";
+import { context } from "../../contexts/AppProvider";
 import "../../App.css";
 
 export default function Cart() {
-  const { cartList, setCartList } = useContext(CartContext);
-  const [currenPrice, setCurrentPrice] = useState(0);
-  useEffect(() => {
-    setCurrentPrice(cartList.reduce((sum, { price }) => sum + price, 0));
-  }, [currenPrice]);
+  const { cartList } = useContext(CartContext); //array of items in cart
+  const itemConsumer = useContext(context); //to manipulate theme color
+  const [currenPrice] = useState(0);
 
   function renderList() {
+    //rendering cart content
     return cartList.map(item => (
       <div
         style={{
@@ -30,12 +30,21 @@ export default function Cart() {
 
   return (
     <>
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center"
+        }}
+      >
         Price:{currenPrice}
       </div>
 
-      <div className="listStyle">{renderList()}</div>
-      <button onClick={() => cartList.shift()}>Delete</button>
+      <div
+        className="listStyle"
+        style={{ backgroundColor: itemConsumer?.themeStyle }}
+      >
+        {renderList()}
+      </div>
     </>
   );
 }

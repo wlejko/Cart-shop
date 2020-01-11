@@ -1,17 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import MenuList from "./MenuList";
+import { context } from "../../contexts/AppProvider";
 import "../../App.css";
 
 export default function Menu() {
   const [openMenu, setOpenMenu] = useState(false);
+  const itemConsumer = useContext(context);
 
   const handleClick = () => {
     setOpenMenu(!openMenu);
   };
 
   return (
-    <div>
+    <div style={{ backgroundColor: itemConsumer?.themeStyle }}>
       <MenuList visible={openMenu} />
       <div
         id="aroow"

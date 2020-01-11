@@ -1,0 +1,13 @@
+{
+  "Menu": {
+    "1": "List",
+    "2": "Cart"
+  },
+  "List": {
+    "1": "List",
+    "2": "Tiles"
+  },
+  "Item": {
+    "1": "Add to cart"
+  }
+}

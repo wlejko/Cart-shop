@@ -8,9 +8,10 @@ import "./App.css";
 
 const App: React.FC = () => {
   const [view, setView] = useState("itemView");
+  const [themeStyle, setThemeStyle] = useState("white");
 
   return (
-    <context.Provider value={{ view, setView }}>
+    <context.Provider value={{ view, setView, themeStyle, setThemeStyle }}>
       <CartProvider>
         <div className="App">
           <Menu />
