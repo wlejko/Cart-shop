@@ -8,6 +8,7 @@
     "2": "Kafelki"
   },
   "Item": {
-    "1": "Dodaj"
+    "1": "Dodaj",
+    "2": "Usuń"
   }
 }

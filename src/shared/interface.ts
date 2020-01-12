@@ -3,4 +3,5 @@ export interface itemInterface {
   price: number;
   description: string;
   shipping: string;
+  isAdded?: boolean
 }

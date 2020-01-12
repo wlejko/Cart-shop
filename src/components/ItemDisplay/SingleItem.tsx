@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import "../../App.css";
 
 export default function SingleItem(props: itemInterface) {
-  const { name, price, description, shipping } = props;
+  const { name, price, description, shipping, isAdded } = props;
   const arrayOfProps = [name, price, description, shipping];
   const { cartList, setCartList } = useContext(CartContext);
   const { t } = useTranslation();
@@ -27,31 +27,51 @@ export default function SingleItem(props: itemInterface) {
     ));
   };
 
+  const renderButton = (name: string) => {
+    if (isAdded === true) {
+      return (
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <button
+            className="addToCartButton"
+            onClick={() => {
+              setCartList(cartList.filter(item => item.name !== name));
+            }}
+          >
+            {t("Item.2")}
+          </button>
+        </div>
+      );
+    } else {
+      return (
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <button
+            className="addToCartButton"
+            onClick={() => {
+              setCartList([
+                ...cartList,
+                {
+                  name: name,
+                  price: price,
+                  description: description,
+                  shipping: shipping
+                }
+              ]);
+            }}
+          >
+            {t("Item.1")}
+          </button>
+        </div>
+      );
+    }
+  };
+
   return (
     <div className="card">
       <div style={{ display: "flex", flexDirection: "column", flexGrow: 1 }}>
         <div style={{ display: "flex" }}>{renderDescription()}</div>
         <div style={{ display: "flex" }}>{renderProps()}</div>
       </div>
-
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <button
-          className="addToCartButton"
-          onClick={() => {
-            setCartList([
-              ...cartList,
-              {
-                name: name,
-                price: price,
-                description: description,
-                shipping: shipping
-              }
-            ]);
-          }}
-        >
-          {t("Item.1")}
-        </button>
-      </div>
+      {renderButton(name)}
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import MenuList from "./MenuList";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { context } from "../../contexts/AppProvider";
 import "../../App.css";
 

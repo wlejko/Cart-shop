@@ -8,6 +8,7 @@
     "2": "Tiles"
   },
   "Item": {
-    "1": "Add to cart"
+    "1": "Add to cart",
+    "2": "Delete"
   }
 }

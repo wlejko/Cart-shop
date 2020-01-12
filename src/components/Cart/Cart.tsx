@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import SingleItem from "../ItemDisplay/SingleItem";
 import { CartContext } from "../../contexts/CartProvider";
 import { context } from "../../contexts/AppProvider";
@@ -7,7 +7,7 @@ import "../../App.css";
 export default function Cart() {
   const { cartList } = useContext(CartContext); //array of items in cart
   const itemConsumer = useContext(context); //to manipulate theme color
-  const [currenPrice] = useState(0);
+  const [currenPrice, setCurrentPrice] = useState(0);
 
   function renderList() {
     //rendering cart content
@@ -23,6 +23,7 @@ export default function Cart() {
           description={item.description}
           shipping={item.shipping}
           key={item.name}
+          isAdded={true}
         />
       </div>
     ));
