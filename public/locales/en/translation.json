@@ -10,5 +10,12 @@
   "Item": {
     "1": "Add to cart",
     "2": "Delete"
+  },
+  "Sort": {
+    "1": "Sort",
+    "2": "Price ascending",
+    "3": "Price descending",
+    "4": "Name ascending",
+    "5": "Name descending"
   }
 }

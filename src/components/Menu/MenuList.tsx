@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import ThemeButton from "./ThemeButton";
 import "../../App.css";
 
-export default function MenuList(props: { visible: boolean }) {
+export default function MenuList(props: { visible?: boolean }) {
   const { visible } = props;
   const { t } = useTranslation();
   const itemConsumer = useContext(context);

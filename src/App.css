@@ -7,6 +7,23 @@
   display: flex;
 }
 
+/*top menu style*/
+.menuTop {
+  width: 100%;
+  color: #b21f66;
+  height: 48px;
+  background-color: #111d5e;
+  padding: 20px;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.singleMenuItem {
+  margin-top: 16px;
+}
+
 /*side menu style*/
 #menu {
   transition: transform 400ms ease-in;
@@ -78,7 +95,6 @@
 
 .card {
   display: flex;
-
   margin: 16px 40px 12px 0px;
   padding: 12px 4px;
   border: 2px solid #111d5e;
@@ -92,10 +108,8 @@
 }
 
 .listStyle {
-  display: flex;
-  flex-direction: column;
-  overflow: auto;
   height: 100%;
+  overflow-y: auto;
 }
 
 .gridStyle {
@@ -115,13 +129,13 @@
   font-size: 16px;
   margin-top: 8px;
   cursor: pointer;
-  width: 12%;
+  width: 100px;
 }
 
 .itemListStyle {
-  display: flex;
   flex-grow: 1;
-  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
 }
 
 .addToCartButton {
@@ -147,4 +161,18 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #0c1441;
+}
+
+@media (max-width: 550px) {
+  .App {
+    flex-direction: column;
+  }
+  .itemListStyle {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+  }
+  .card {
+    margin: 16px 8px 12px 8px;
+  }
 }

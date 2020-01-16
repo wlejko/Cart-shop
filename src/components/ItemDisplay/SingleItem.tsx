@@ -27,6 +27,20 @@ export default function SingleItem(props: itemInterface) {
     ));
   };
 
+  const addFunction = (searching: string) => {
+    if (cartList.find(item => item.name === searching) === undefined) {
+      setCartList([
+        ...cartList,
+        {
+          name: name,
+          price: price,
+          description: description,
+          shipping: shipping
+        }
+      ]);
+    }
+  };
+
   const renderButton = (name: string) => {
     if (isAdded === true) {
       return (
@@ -47,15 +61,7 @@ export default function SingleItem(props: itemInterface) {
           <button
             className="addToCartButton"
             onClick={() => {
-              setCartList([
-                ...cartList,
-                {
-                  name: name,
-                  price: price,
-                  description: description,
-                  shipping: shipping
-                }
-              ]);
+              addFunction(name);
             }}
           >
             {t("Item.1")}

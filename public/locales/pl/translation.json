@@ -10,5 +10,12 @@
   "Item": {
     "1": "Dodaj",
     "2": "Usuń"
+  },
+  "Sort": {
+    "1": "Sortuj",
+    "2": "Cena rosnąco",
+    "3": "Cena malejąco",
+    "4": "Nazwa rosnąco",
+    "5": "Nazwa malejąco"
   }
 }

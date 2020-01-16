@@ -1,27 +1,24 @@
-import React, { useState, useContext } from "react";
-import MenuList from "./MenuList";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import { context } from "../../contexts/AppProvider";
+import React, { useState, useEffect } from "react";
+import MenuLeft from "./MenuLeft";
+import MenuTop from "./MenuTop";
 import "../../App.css";
 
 export default function Menu() {
-  const [openMenu, setOpenMenu] = useState(false);
-  const itemConsumer = useContext(context);
+  const [dimension, setDimension] = useState(window.innerWidth);
+  useEffect(() => {
+    function handleResize() {
+      setDimension(window.innerWidth);
+    }
+    window.addEventListener("resize", handleResize);
+  }, [dimension]);
 
-  const handleClick = () => {
-    setOpenMenu(!openMenu);
+  const whatToRender = () => {
+    if (dimension > 550) {
+      return <MenuLeft />;
+    } else {
+      return <MenuTop />;
+    }
   };
 
-  return (
-    <div style={{ backgroundColor: itemConsumer?.themeStyle }}>
-      <MenuList visible={openMenu} />
-      <div
-        id="aroow"
-        className={openMenu ? "slideInArrow" : ""}
-        onClick={() => handleClick()}
-      >
-        <ArrowForwardIcon />
-      </div>
-    </div>
-  );
+  return whatToRender();
 }
